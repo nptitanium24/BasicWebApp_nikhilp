@@ -11,6 +11,26 @@ public class QueryProcessor {
         if (query.toLowerCase().contains("name")) {
             return "brick";
         }
+        if (query.toLowerCase().contains("largest")) {
+            int colon = query.lastIndexOf(":");
+            String numbers = query.substring(colon+2);
+            String numbersArr[] = numbers.split(", ");
+
+            int[] toInts = new int[numbersArr.length];
+            for(int i = 0;i < numbersArr.length;i++)
+            {
+               toInts[i] = Integer.parseInt(numbersArr[i]);
+            }
+            int max = 0;
+            for(int i = 0;i < numbersArr.length;i++)
+            {
+               if (toInts[i] > toInts[max]) {
+                    max = i;
+               }
+            }
+            System.out.print(numbersArr[max]);
+            return numbersArr[max];
+        }
         if (query.toLowerCase().contains("moo"))  {
             return "cow";
         }

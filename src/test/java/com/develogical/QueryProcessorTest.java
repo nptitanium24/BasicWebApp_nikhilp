@@ -31,6 +31,11 @@ public class QueryProcessorTest {
     }
 
     @Test
+    public void larger() throws Exception {
+        assertThat(queryProcessor.process("what is your largest: 121, 841, 390, 453"), containsString("841"));
+    }
+
+    @Test
     public void knowsCowSound() throws Exception {
         assertThat(queryProcessor.process("hey I go moo"), containsString("cow"));
     }
